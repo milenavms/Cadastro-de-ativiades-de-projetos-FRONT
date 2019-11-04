@@ -76,6 +76,15 @@ export default class Projeto extends Component {
             });
     }
 
+    editarProjeto = (data) => {
+        this.setState({
+            model: {
+                id: data.id,
+                descricao: data.descricao,
+            }
+        });
+    }
+
     removerProjeto = (id) => {
         const requestInfo = {
             method: 'DELETE',
