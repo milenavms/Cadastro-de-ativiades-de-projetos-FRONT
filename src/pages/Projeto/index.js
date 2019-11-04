@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Header from '../../components/Header';
 
-import { Form, FormGroup, Label, Input, Button, Row, Col, Table } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Table } from 'reactstrap';
 
 
 export default class Projeto extends Component {

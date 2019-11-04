@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, Input, Button, Row, Col, Table } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Row, Col, Table} from 'reactstrap';
+
 
 import Header from '../../components/Header';
 import moment from "moment";
@@ -44,18 +45,23 @@ export default class Atividade extends Component {
         this.setState({
             statusSelecionado: 0,
             ususarioSelecionado: 0,
-            model: {
+           
+                 model: {
                 id : 0,
                 descricao : '',
                 deadline : '',
                 usuario: 0,
-                status: 0
-            }
-        })
-
+                status: 0,
+                
+            },         
+          
+        })     
+   
     }
 
-    setValues = (e, field) => {
+   
+
+    setValues = (e, field) => {    
         const { model } = this.state;
         model[field] = e.target.value;
         this.setState({ model });
@@ -186,7 +192,8 @@ export default class Atividade extends Component {
 
     salvar = (e) => {
         e.preventDefault();
-
+        
+    
         var atividade = {
             id: this.state.model.id ? this.state.model.id : 0,
             descricao: this.state.model.descricao,
@@ -249,9 +256,10 @@ export default class Atividade extends Component {
                 <Header title="Cadastrar Atividade" />
                 <hr className="my-3" />
 
-                <Form ref="formAtividade">
+              <Form ref="formAtividade">   
                     <FormGroup>
                         <Label for="descricao">Descrição</Label>
+        
                         <Input onChange={e => this.setValues(e, 'descricao')} type="text" id="descricao" placeholder="Informe a  descrição" value={this.state.model.descricao}></Input>
                     </FormGroup>
                     <FormGroup>
