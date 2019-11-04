@@ -12,6 +12,8 @@ export default class Login extends Component{
     }
 
     signIn = () => {
+
+        
             const requestInfo = {
             method: 'POST',
             body: JSON.stringify({email: this.email, senha: this.password}),
