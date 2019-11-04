@@ -36,8 +36,6 @@ export default class Atividade extends Component {
                 status: 0
             }
         }
-
-
     }
 
     initForm = () => {
@@ -180,7 +178,7 @@ export default class Atividade extends Component {
                 deadline: data.deadline.substring(0, 10)
             }
         });
-        
+
         this.state.model.id = data.id;
 
     }

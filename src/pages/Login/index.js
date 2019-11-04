@@ -33,7 +33,7 @@ export default class Login extends Component{
         .then(data => {
            
            localStorage.setItem('token', data.token);
-           this.props.history.push("/atividade");
+           this.props.history.push("/projeto");
            return;
         })
 
