@@ -134,6 +134,10 @@ export default class Projeto extends Component {
             .catch(e => console.log(e));
     }
 
+    irParaAtividades = (id) => {
+        this.props.history.push("/atividade/"+id);
+    }
+
 
 
 
@@ -162,7 +166,9 @@ export default class Projeto extends Component {
                             <tr key={data.id}>
                                 <td>{data.descricao} </td>
                                 <td> <Button onClick={() => this.editarProjeto(data)} outline color="info">Editar</Button>{' '}
-                                    <Button onClick={() => this.removerProjeto(data.id)} outline color="danger">Excluir</Button> </td>
+                                    <Button onClick={() => this.removerProjeto(data.id)} outline color="danger">Excluir</Button>{' '}
+                                    <Button onClick={() => this.irParaAtividades(data.id)} outline color="primary">Atividades</Button>
+                                     </td>
                             </tr>
 
                         )}

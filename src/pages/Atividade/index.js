@@ -19,6 +19,7 @@ export default class Atividade extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            projetoId: props.match.params.id,
             usuarios: [],
             status: [],
             atividades: [],
@@ -125,7 +126,7 @@ export default class Atividade extends Component {
         };
 
 
-        fetch('http://localhost:4000/atividade/projeto/2', requestInfo)
+        fetch('http://localhost:4000/atividade/projeto/'+this.state.projetoId, requestInfo)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -190,7 +191,7 @@ export default class Atividade extends Component {
             id: this.state.model.id ? this.state.model.id : 0,
             descricao: this.state.model.descricao,
             deadline: this.state.model.deadline,
-            projetoId: 2,
+            projetoId: this.state.projetoId,
             usuario: {
                 id: this.state.model.usuario ? this.state.model.usuario : this.state.ususarioSelecionado
             },
@@ -198,8 +199,6 @@ export default class Atividade extends Component {
                 id: this.state.model.status ? this.state.model.status : this.state.statusSelecionado
             }
         }
-
-        console.log(atividade);
 
         var method = this.state.model.id ? 'PUT' : 'POST';
 
@@ -232,13 +231,17 @@ export default class Atividade extends Component {
             });
     }
 
+    dataFormatada = (data) => {
+        var dia = data.substring(8,10);
+        var mes = data.substring(5,7);
+        var ano = data.substring(0,4);
 
-
-
+        return dia+'/'+mes+'/'+ano;
+    }
 
     render() {
         return (
-            <div className="col-md-6">
+            <div className="col-md-8">
                 <Header title="Cadastrar Atividade" />
                 <hr className="my-3" />
 
@@ -302,11 +305,11 @@ export default class Atividade extends Component {
                         {this.state.atividades.map((data, i) =>
                             <tr key={data.id}>
                                 <td>{data.descricao} </td>
-                                <td>{data.deadline}</td>
+                                <td>{ this.dataFormatada(data.deadline)}</td>
                                 <td>{data.usuarioEmail}</td>
                                 <td>{data.statusDescricao}</td>
-                                <td> <Button onClick={() => this.editarAtividade(data)} outline color="info">I</Button>
-                                    <Button onClick={() => this.removerAtividade(data.id)} outline color="danger">X</Button> </td>
+                                <td> <Button onClick={() => this.editarAtividade(data)} outline color="info">Editar</Button>{' '}
+                                    <Button onClick={() => this.removerAtividade(data.id)} outline color="danger">Excluir</Button> </td>
                             </tr>
 
                         )}
