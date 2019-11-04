@@ -1,10 +1,7 @@
-#Cadastro-de-ativiades-de-projetos-FRONT
+# Cadastro-de-ativiades-de-projetos-FRONT
 
 ### Tecnologias utilizadas
 
-
-
-### Dependências
 Reactjs
 
 ### Guia
