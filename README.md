@@ -5,8 +5,7 @@
 
 
 ### Dependências
-
-
+Reactjs
 
 ### Guia
 1. clone o repositorio
