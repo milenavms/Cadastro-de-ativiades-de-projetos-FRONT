@@ -239,6 +239,10 @@ export default class Atividade extends Component {
         return dia+'/'+mes+'/'+ano;
     }
 
+    sair = () => {
+        this.props.history.push("/logout");
+    }
+
     render() {
         return (
             <div className="col-md-8">
@@ -317,6 +321,8 @@ export default class Atividade extends Component {
                 </Table>
 
                 <hr className="my-5" />
+
+                <Button color="secondary" onClick={() => this.sair()}>Logout</Button>
 
 
             </div>

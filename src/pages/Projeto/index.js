@@ -94,7 +94,7 @@ export default class Projeto extends Component {
         };
 
 
-        fetch('http://localhost:4000/projeto/'+id, requestInfo)
+        fetch('http://localhost:4000/projeto/' + id, requestInfo)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -135,11 +135,13 @@ export default class Projeto extends Component {
     }
 
     irParaAtividades = (id) => {
-        this.props.history.push("/atividade/"+id);
+        this.props.history.push("/atividade/" + id);
     }
 
 
-
+    sair = () => {
+        this.props.history.push("/logout");
+    }
 
     render() {
         return (
@@ -168,12 +170,15 @@ export default class Projeto extends Component {
                                 <td> <Button onClick={() => this.editarProjeto(data)} outline color="info">Editar</Button>{' '}
                                     <Button onClick={() => this.removerProjeto(data.id)} outline color="danger">Excluir</Button>{' '}
                                     <Button onClick={() => this.irParaAtividades(data.id)} outline color="primary">Atividades</Button>
-                                     </td>
+                                </td>
                             </tr>
 
                         )}
                     </tbody>
                 </Table>
+                <hr className="my-5" />
+
+                <Button color="secondary" onClick={() => this.sair()}>Logout</Button>
             </div>
         );
     }
