@@ -19,7 +19,11 @@ npm install
 ```  
 npm install --save reactstrap react react-dom
 ```
-5. Inicio o server
+5.  react-scripts
+```
+npm install react-scripts --save
+```
+6. Inicio o server
 ```  
 npm start
 ```
