@@ -6,6 +6,7 @@ import PrivateRoute from './auth';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Logout from './pages/Logout';
+import Atividade from './pages/Atividade';
 
 const Routes  = () => (
      <Router>
@@ -13,6 +14,8 @@ const Routes  = () => (
              <Route exact path="/" component ={Login}/> 
              <PrivateRoute path="/admin" component={Dashboard}/>
              <Route exact path="/logout" component={Logout}/>
+             <PrivateRoute path="/atividade" component={Atividade}/>
+             
          </Switch>
      </Router>
 );
